@@ -2,6 +2,15 @@ nav{
 	background-color: #282828;
 }
 
+h2{
+  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+p{
+  font-family: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  line-height: 1.75;
+}
+
 #coleira{
     margin-top:100px;
 }
@@ -81,6 +90,22 @@ nav{
 #footer{
   background-color: #077187;
   text-align: center;
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#btnmodal{
+    border: 1px solid #ff5964;
+    background: #ff5964;
+}
+
+#btnmodal:hover{
+  opacity:0.8;
 }
   
   /* Position the image container (needed to position the left and right arrows) */

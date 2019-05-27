@@ -15,6 +15,7 @@
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    
     <style type="text/css">
         .scrolled {
             transition: 500ms ease;
@@ -37,7 +38,7 @@
                     <li class="nav-item"><a href="institucional.html" class="nav-link">Institucional</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">Produto</a></li>
                 </ul>
-                <a href="cart.php" class="btn ml-auto" style="color:#ffffff;"><i class="fas fa-shopping-cart"></i></a>
+                <a href="cart.php" class="btn ml-auto" style="color:#ffffff;"><i id="car1" class="fas fa-shopping-cart"></i></a>
                 <a href="login.html" class="btn d-none d-sm-none d-md-none d-lg-block" style="border-radius:40px;border:1px solid #00DBB4;color:#ffffff;"><i class="fas fa-user mr-2"></i>Área do cliente</a></a>
             </div>
         </div>
@@ -106,7 +107,7 @@
                 <p id="cor" style="margin-top:0;">Funciona com mensalidade</p>
                 <p class="text-muted">A partir de R$20,00 por mês</p>
                 <p id="price">R$ 179,90</p>
-                <button class="btn btn-lg btn-primary btn-block text-uppercase mb-3" id="button1" onclick="TrocaPagina();" type="submit"><i class="fas fa-cart-plus"></i>Adicionar ao carrinho</button>
+                <a href = "#" data-toggle = "modal" data-target = "#modalConteudo" class = "btn btn-lg btn-primary btn-block text-uppercase mb-3"><i class="fas fa-cart-plus"></i>Adicionar ao carrinho</a>
             </div>
         </div>
     </div>
@@ -180,10 +181,61 @@
         </footer>
     </section>
 
+    <div class = "modal fade" id = "modalConteudo" tabindex="-1" role = "dialog">
+    <div class = "modal-dialog modal-lg" role = "document">
+      <div class = "  modal-content">
+        <div class = "modal-header" style="background-color:#4cbb6c;color:white;text-align:center;">
+          <h5 class = "modal-title"> O produto foi adicionado ao seu carrinho de compras</h5>
+          <button type = "button" class = "close" data-dismiss = "modal">
+           <span>&times;</span>
+        </div>
+        <div class = "modal-body">
+          <div class="row">
+            <div class="col-md-4">
+              <img class="img-fluid" src="img/coleira.jpg" width="200px">
+            </div>
+            <div class="col-md-4">
+              <h5 style="color:#ff5964">Coleira rastreadora DogSafer</h5>
+              <p>R$ 179,90</p>
+              <hr/>
+            </div>
+            <div class="col-md-4">
+              <strong>Há 1 item no seu carrinho</strong>
+              <hr/>
+              <strong>Total do envio:</strong><p>A verificar</p>
+              <strong>Total:</strong><p>R$ 179,90</p>
+              <hr/>
+              <button id="btnmodal" type="button" class="btn btn-lg btn-primary btn-block text-uppercase mb-3" onclick="TrocaPagina();">Ver carrinho</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
+    
 
     <script type="text/javascript">
+     $('#car2').hide();
+ 
+     $("#buttonAdd").click(function(){
+        $("#car1").hide();
+        $('#car2').show();
+        });
+
+  function TrocaPagina(){
+  var troca = 0;
+  troca++;
+  if(troca>=1){
+    window.location.replace("cart.html");
+    
+  } 
+}
+
+
       var slideIndex = 1;
 showSlides(slideIndex);
 
@@ -213,10 +265,6 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
   captionText.innerHTML = dots[slideIndex-1].alt;
-}
-
-function TrocaPagina(){
-  window.location.replace("cart.html"); 
 }
     </script>
 </body>
